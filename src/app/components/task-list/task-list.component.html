@@ -5,7 +5,7 @@
                 (click)="removeList(list.id)">X</button>
             <h2 class="card-title">{{list.title}}</h2>
             <div>
-                <form novalidate (ngSubmit)="addMarketTask(list.id)" [formGroup]="formGroup">
+                <form novalidate (ngSubmit)="addTask(list.id)" [formGroup]="formGroup">
                     <div class="input-group">
                         <input type="text" class="form-control" formControlName="task"
                             placeholder="Insira sua atividade">
@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
                 <ul style="list-style: none;">
-                    <li *ngFor="let item of marketTasks">
+                    <li *ngFor="let item of listTasks">
                         <div *ngIf="item.listId == list.id">
                             <span style="font-size: 24px;">{{item.title}}</span> <br>
                             <button type="button" class="btn btn-success" style="margin:3px"

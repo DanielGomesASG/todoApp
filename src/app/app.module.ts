@@ -9,15 +9,13 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { TodoComponent } from './components/todo/todo.component';
 import { AppRoutingModule } from './app.routes';
-import { WorkListComponent } from './components/work-list/work-list.component';
-import { MarketListComponent } from './components/market-list/market-list.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    WorkListComponent,
-    MarketListComponent
+    TaskListComponent
   ],
   imports: [
     BrowserModule,

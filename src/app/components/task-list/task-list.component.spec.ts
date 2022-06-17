@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MarketListComponent } from './market-list.component';
+import { TaskListComponent } from './task-list.component';
 
-describe('MarketListComponent', () => {
-  let component: MarketListComponent;
-  let fixture: ComponentFixture<MarketListComponent>;
+describe('TaskListComponent', () => {
+  let component: TaskListComponent;
+  let fixture: ComponentFixture<TaskListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MarketListComponent ]
+      declarations: [ TaskListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MarketListComponent);
+    fixture = TestBed.createComponent(TaskListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

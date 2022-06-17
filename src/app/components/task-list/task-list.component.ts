@@ -6,11 +6,11 @@ import { iTask } from 'src/app/interfaces/task.interface';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-market-list',
-  templateUrl: './market-list.component.html',
-  styleUrls: ['./market-list.component.css']
+  selector: 'task-list',
+  templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.css']
 })
-export class MarketListComponent implements OnInit {
+export class TaskListComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private listService: ListService,
@@ -20,15 +20,15 @@ export class MarketListComponent implements OnInit {
   lists: any = [];
   formGroup!: FormGroup;
   updateForm !: FormGroup;
-  marketTasks: Array<any> = [];
-  marketTask: iTask = {
+  listTasks: Array<any> = [];
+  listTask: iTask = {
     title: '',
     listId: 0
   }
 
   ngOnInit(): void {
     this.getLists();
-    this.getMarketTasks();
+    this.getAppTasks();
 
     this.formGroup = new FormGroup({
       task: new FormControl('', [Validators.required]),
@@ -39,20 +39,20 @@ export class MarketListComponent implements OnInit {
     });
   }
 
-  getMarketTasks() {
+  getAppTasks() {
     this.taskService.getTasks().subscribe((data: Array<any>) => {
-      this.marketTasks = data.filter(task => task.listId);
+      this.listTasks = data.filter(task => task.listId);
     });
   }
 
-  addMarketTask(listId: number) {
+  addTask(listId: number) {
     if (this.formGroup.value.task) {
-      this.marketTask.title = this.formGroup.value.task;
-      this.marketTask.listId = listId;
-      this.taskService.addTask(this.marketTask).subscribe();
+      this.listTask.title = this.formGroup.value.task;
+      this.listTask.listId = listId;
+      this.taskService.addTask(this.listTask).subscribe();
       this.toastService.success('Tarefa adicionada com sucesso!');
       this.formGroup.reset();
-      this.getMarketTasks();
+      this.getAppTasks();
     } else {
       this.toastService.warning('Campo de tarefa não pode ser vazio', 'Atenção');
       // window.alert('Campo de tarefa está vazio');
@@ -63,13 +63,13 @@ export class MarketListComponent implements OnInit {
   markAsDone(id: number) {
     this.taskService.removeTask(id).subscribe();
     this.toastService.success('Tarefa conclúida !', 'Parabéns !');
-    this.getMarketTasks();
+    this.getAppTasks();
   }
 
   removeTask(id: number){
     this.taskService.removeTask(id).subscribe();
     this.toastService.warning('Tarefa removida', 'Não foi dessa vez :(');
-    this.getMarketTasks();
+    this.getAppTasks();
   }
 
   updateTask(item: any) {
@@ -81,7 +81,7 @@ export class MarketListComponent implements OnInit {
     this.taskService.updateTask(this.dtoHelper.id, this.dtoHelper).subscribe();
     this.toastService.success('Tarefa Atualizada', 'OK');
     this.formGroup.reset();
-    this.getMarketTasks();
+    this.getAppTasks();
   }
 
   removeList(id: number) {
