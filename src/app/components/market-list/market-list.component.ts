@@ -85,7 +85,6 @@ export class MarketListComponent implements OnInit {
   }
 
   removeList(id: number) {
-    console.log('id :>> ', id);
     this.listService.removeList(id).subscribe();
     this.toastService.warning('Lista removida', 'Removido');
     this.getLists();
