@@ -6,7 +6,7 @@
 >Utilização do json-server com o fake backend;
 
 
-##Do Uso e Tecnolgias:
+## Do Uso e Tecnolgias:
 
 > Optei por usar bootstrap por estar mais familiarizado, embora, ao ser pedido a versão mais atual do Angular(14.0.2), tive algumas incompatibilidades com ferramentas que uso na versão 12.x.x como a biblioteca Ngb-Bootsrap.
 
@@ -25,14 +25,16 @@
 
 > As classes bootsraps utilizadas foram navbar e card, não saindo muito deste contexto.
 
-> deixei a navegação no component Todo, pois nele seria criado a ideia de home, e de lá "partiriam"modularizações e outras navegações se necessário.
+> Deixei a navegação no component Todo, pois nele seria criado a ideia de home, e de lá "partiriam"modularizações e outras navegações se necessário.
 
-###Git Clone e Ambiente Local:
+>Utilizei a lib ngx-toast como biblioteca para simular alertas, recomendações de uso da comunidade openbase 
+
+### Git Clone e Ambiente Local:
 
 > O Projeto está aberto no github, com o ultimo commit contendo o banco db.json original enviado via e-mail
 
-> npm run db
+## npm run db
 > irá iniciar o pseudo banco dentro do projeto, na porta padrão do json-server: http://localhost:3000
 
-> npm start
+## npm start
 > irá iniciar a app angular na porta padrão: http://localhost:4200
