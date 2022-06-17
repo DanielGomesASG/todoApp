@@ -24,7 +24,7 @@ import { MarketListComponent } from './components/market-list/market-list.compon
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

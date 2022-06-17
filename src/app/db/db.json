@@ -1,39 +1,22 @@
 {
-  "lists": [
-    {
-      "id": 1,
-      "title": "Mercado"
-    },
-    {
-      "id": 2,
-      "title": "Trabalho"
-    }
-  ],
-  "tasks": [
-    {
-      "id": 1,
-      "listId": 1,
-      "title": "Comprar Ração "
-    },
-    {
-      "id": 2,
-      "listId": 1,
-      "title": "Comprar feijão"
-    },
-    {
-      "id": 3,
-      "listId": 2,
-      "title": "Reunião às 10:00"
-    },
-    {
-      "title": "Comprar uniformes",
-      "listId": 2,
-      "id": 4
-    },
-    {
-      "title": "Comprar Ração ",
-      "listId": 1,
-      "id": 5
-    }
-  ]
-}
+    "lists": [{
+        "id": 1,
+        "title": "Mercado"
+    },{
+        "id": 2,
+        "title": "Trabalho"
+    }],
+    "tasks": [{
+        "id": 1,
+        "listId": 1,
+        "title": "Comprar arroz"
+    }, { 
+        "id": 2,
+        "listId": 1,
+        "title": "Comprar feijão"
+    }, { 
+        "id": 3,
+        "listId": 2,
+        "title": "Reunião às 10:00"
+    }]
+  }

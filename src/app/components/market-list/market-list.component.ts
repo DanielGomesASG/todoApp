@@ -15,9 +15,12 @@ export class MarketListComponent implements OnInit {
     private taskService: TaskService,
     private listService: ListService
   ) { }
+  updated: String = '';
+  isUpdate: boolean = false;
   ids: any = [];
   lists: any = [];
   formGroup!: FormGroup;
+  updateForm !: FormGroup;
   marketTasks: Array<any> = [];
   x: Array<any> = [];
   marketTask: iTask = {
@@ -31,6 +34,10 @@ export class MarketListComponent implements OnInit {
 
     this.formGroup = new FormGroup({
       task: new FormControl(''),
+    });
+
+    this.updateForm = new FormGroup({
+      task: new FormControl('')
     });
   }
 
@@ -59,13 +66,7 @@ export class MarketListComponent implements OnInit {
   }
 
   updateTask(item: any) {
-    if (this.formGroup.value.task) {
-      item.title = this.formGroup.value.task;
-      this.taskService.updateTask(item.id, item).subscribe();
-    } else {
-      window.alert('Tarefa vazia!');
-      return;
-    }
+    console.log('item :>> ', item);
   }
 
   removeList(id: number) {
