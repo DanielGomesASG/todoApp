@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from 'src/app/services/list.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup , Validators} from '@angular/forms';
 import { iList } from 'src/app/interfaces/list.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-todo',
@@ -10,7 +11,8 @@ import { iList } from 'src/app/interfaces/list.interface';
 })
 export class TodoComponent implements OnInit {
   constructor(
-    private listService: ListService
+    private listService: ListService,
+    private toastService: ToastrService
   ) { }
   lists: any = [];
   list: iList = {
@@ -21,7 +23,7 @@ export class TodoComponent implements OnInit {
     this.getLists();
     
     this.todoForm = new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
     });
   }
 
@@ -39,7 +41,7 @@ export class TodoComponent implements OnInit {
         location.reload();
       });
     }else{
-      window.alert('Lista não pode ser vazia!');
+      this.toastService.warning('Campo de tarefas não pode estar vazio', 'Atenção')
       return;
     }
     console.log('add :>> ');

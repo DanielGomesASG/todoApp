@@ -1,17 +1,4 @@
 {
-  "lists": [
-    {
-      "id": 1,
-      "title": "Mercado"
-    },
-    {
-      "id": 2,
-      "title": "Trabalho"
-    },
-    {
-      "title": "Faculdade",
-      "id": 3
-    }
-  ],
+  "lists": [],
   "tasks": []
 }

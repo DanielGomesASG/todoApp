@@ -10,6 +10,10 @@
                         <input type="text" class="form-control" formControlName="task"
                             placeholder="Insira sua atividade">
                     </div>
+                    <div class="alert alert-warning" role="alert"
+                        *ngIf="formGroup.get('task')?.errors && (formGroup.get('task')?.touched || formGroup.get('task')?.dirty)">
+                        Não é possível registrar tarefas vazias
+                    </div>
                     <button class="btn btn-primary" style="flex-direction: column; margin:3px">Adicionar Tarefa
                     </button>
                 </form>
@@ -23,10 +27,10 @@
                                 (click)="markAsDone(item.id)">Concluir
                             </button>
                             <button type="button" class="btn btn-danger" style="margin:3px"
-                                (click)="markAsDone(item.id)">Deletar
+                                (click)="removeTask(item.id)">Deletar
                             </button>
                             <button type="button" class="btn btn-primary" style="margin:3px" data-toggle="modal"
-                                data-target="#exampleModal" (click)="updateTask(item)">Editar
+                                data-target="#updateModal" (click)="updateTask(item)">Editar
                             </button>
                         </div>
                     </li>
@@ -36,18 +40,13 @@
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{dtoHelper?.title}}</h5>
+                <h5 class="modal-title" id="updateModalLabel">{{dtoHelper?.title}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -62,7 +61,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveUpdate()">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveUpdate()">Save
+                    changes</button>
             </div>
         </div>
     </div>
