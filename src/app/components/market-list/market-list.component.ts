@@ -15,9 +15,7 @@ export class MarketListComponent implements OnInit {
     private taskService: TaskService,
     private listService: ListService
   ) { }
-  updated: String = '';
-  isUpdate: boolean = false;
-  ids: any = [];
+  dtoHelper!: any;
   lists: any = [];
   formGroup!: FormGroup;
   updateForm !: FormGroup;
@@ -66,7 +64,18 @@ export class MarketListComponent implements OnInit {
   }
 
   updateTask(item: any) {
+    this.dtoHelper = item;
     console.log('item :>> ', item);
+  }
+
+  saveUpdate() {
+    // console.log('this.formGroup :>> ', this.formGroup.value.task);
+    this.dtoHelper.title = this.formGroup.value.task
+    this.taskService.updateTask(this.dtoHelper.id, this.dtoHelper).subscribe(data =>{
+      console.log('data :>> ', data);
+    });
+    this.formGroup.reset();
+    this.getMarketTasks();
   }
 
   removeList(id: number) {

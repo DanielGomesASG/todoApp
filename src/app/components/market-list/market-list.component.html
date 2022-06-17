@@ -25,12 +25,44 @@
                             <button type="button" class="btn btn-danger" style="margin:3px"
                                 (click)="markAsDone(item.id)">Deletar
                             </button>
-                            <button type="button" class="btn btn-primary" style="margin:3px"
-                            (click)="updateTask(item)">Editar
+                            <button type="button" class="btn btn-primary" style="margin:3px" data-toggle="modal"
+                                data-target="#exampleModal" (click)="updateTask(item)">Editar
                             </button>
                         </div>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{dtoHelper?.title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="saveUpdate()" novalidate [formGroup]="formGroup">
+                    <div class="input-group">
+                        <input type="text" class="form-control" formControlName="task"
+                            placeholder="Ex: Coisas da Faculdade">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveUpdate()">Save changes</button>
             </div>
         </div>
     </div>
