@@ -55,7 +55,7 @@ export class TaskListComponent implements OnInit {
       this.toastService.success('Tarefa adicionada com sucesso!');
       this.formGroup.reset();
     } else {
-      this.toastService.warning('Campo de tarefa não pode ser vazio', 'Atenção');
+      this.toastService.warning('Campo de tarefa não pode ser vazio', 'Atençãoa');
       // window.alert('Campo de tarefa está vazio');
       return;
     }
