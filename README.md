@@ -1,4 +1,4 @@
-# Todo App 
+# Todo App
 
 ## Orientações do PDF
 >É possível adicionar e deletar Listas;
@@ -6,15 +6,15 @@
 >Utilização do json-server com o fake backend;
 
 
-## Do Uso e Tecnolgias:
+## Do uso e tecnologias:
 
 > Optei por usar bootstrap por estar mais familiarizado, embora, ao ser pedido a versão mais atual do Angular(14.0.2), tive algumas incompatibilidades com ferramentas que uso na versão 12.x.x como a biblioteca Ngb-Bootsrap.
 
 > Por não ser compatível com a versão atual, utilizei o bootsrap via cdn, na versão 4.6.1 e implementei alguns modais seguindo à orientação da própria documentação.
 
-> Utilzo Cards pois considero de visão agradável como estilização.
+> Utilizo Cards pois considero de visão agradável como estilização.
 
-> Incialmente, eu pretendia seccionar as listas em navbar, mas se mostrou incompativel, uma vez que o Angular usa componentes para navegar.
+> Incialmente, eu pretendia selecionar as listas em navbar, mas se mostrou incompátivel, uma vez que o Angular usa componentes para navegar.
 
 
 > Preferi o uso de formControls e formGroups, pois acredito serem de fácil validação para a proposta.
@@ -27,7 +27,7 @@
 
 > Deixei a navegação no component Todo, pois nele seria criado a ideia de home, e de lá "partiriam"modularizações e outras navegações se necessário.
 
->Utilizei a lib ngx-toast como biblioteca para simular alertas, recomendações de uso da comunidade openbase 
+>Utilizei a lib ngx-toast como biblioteca para simular alertas, recomendações de uso da comunidade openbase
 
 ### Git Clone e Ambiente Local:
 
