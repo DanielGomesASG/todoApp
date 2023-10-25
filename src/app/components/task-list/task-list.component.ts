@@ -52,10 +52,10 @@ export class TaskListComponent implements OnInit {
       this.taskService.addTask(this.listTask).subscribe(data => {
         this.getAppTasks()
       });
-      this.toastService.success('Tarefa adicionada com sucesso!');
+      this.toastService.success('Tarefa adicionada com sucesso!!');
       this.formGroup.reset();
     } else {
-      this.toastService.warning('Campo de tarefa não pode ser vazio', 'Atenção');
+      this.toastService.warning('Campo de tarefa não pode ser vazio!', 'Atenção!');
       // window.alert('Campo de tarefa está vazio');
       return;
     }
@@ -63,13 +63,13 @@ export class TaskListComponent implements OnInit {
 
   markAsDone(id: number) {
     this.taskService.removeTask(id).subscribe();
-    this.toastService.success('Tarefa conclúida !', 'Parabéns !');
+    this.toastService.success('Tarefa conclúida!', 'Parabéns!');
     this.getAppTasks();
   }
 
   removeTask(id: number){
     this.taskService.removeTask(id).subscribe();
-    this.toastService.warning('Tarefa removida', 'Não foi dessa vez :(');
+    this.toastService.warning('Tarefa removida!', 'Não foi dessa vez :(');
     this.getAppTasks();
   }
 
@@ -80,14 +80,14 @@ export class TaskListComponent implements OnInit {
   saveUpdate() {
     this.dtoHelper.title = this.formGroup.value.task
     this.taskService.updateTask(this.dtoHelper.id, this.dtoHelper).subscribe();
-    this.toastService.success('Tarefa Atualizada', 'OK');
+    this.toastService.success('Tarefa Atualizada!', 'OK');
     this.formGroup.reset();
     this.getAppTasks();
   }
 
   removeList(id: number) {
     this.listService.removeList(id).subscribe();
-    this.toastService.warning('Lista removida', 'Removido');
+    this.toastService.warning('Lista removida!', 'Removido');
     this.getLists();
   }
 
