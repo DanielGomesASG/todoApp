@@ -20,7 +20,7 @@ export class TodoComponent implements OnInit {
   todoForm!: FormGroup;
   ngOnInit(): void {
     this.getLists();
-    
+
     this.todoForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
     });

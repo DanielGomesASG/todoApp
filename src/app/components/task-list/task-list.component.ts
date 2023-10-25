@@ -49,10 +49,11 @@ export class TaskListComponent implements OnInit {
     if (this.formGroup.value.task) {
       this.listTask.title = this.formGroup.value.task;
       this.listTask.listId = listId;
-      this.taskService.addTask(this.listTask).subscribe();
+      this.taskService.addTask(this.listTask).subscribe(data => {
+        this.getAppTasks()
+      });
       this.toastService.success('Tarefa adicionada com sucesso!');
       this.formGroup.reset();
-      this.getAppTasks();
     } else {
       this.toastService.warning('Campo de tarefa não pode ser vazio', 'Atenção');
       // window.alert('Campo de tarefa está vazio');
